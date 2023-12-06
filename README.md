@@ -1,2 +1,2 @@
 # discord-embed-crafter
-A simple discord embed crafter and send it to a webhook URL
+A simple web app to craft discord embeds and send it to a webhook URL.
