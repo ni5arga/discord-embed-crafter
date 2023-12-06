@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Embed Crafter</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-200 p-8">
+  <div id="app" class="max-w-md mx-auto bg-white p-6 rounded shadow-lg">
+    <h1 class="text-2xl font-semibold mb-4">Discord Embed Crafter</h1>
+    
+    <!-- Title -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="title">Title:</label>
+      <input v-model="embed.title" id="title" type="text" class="w-full border p-2 rounded">
+    </div>
+    
+    <!-- Description -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description:</label>
+      <textarea v-model="embed.description" id="description" rows="4" class="w-full border p-2 rounded"></textarea>
+    </div>
+    
+   <!-- Color Picker -->
+    <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Color:</label>
+    <input v-model="embed.color" type="color" class="border p-2 rounded">
+  </div>
+    
+    <!-- Author -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="author">Author (optional):</label>
+      <input v-model="embed.author" id="author" type="text" class="w-full border p-2 rounded">
+    </div>
+
+    <!-- Webhook URL Input -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="webhookUrl">Webhook URL:</label>
+      <input v-model="webhookUrl" id="webhookUrl" type="text" class="w-full border p-2 rounded">
+    </div>
+
+    <!-- Image URL Input -->
+<div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="imageURL">Image URL (optional):</label>
+    <input v-model="embed.imageURL" id="imageURL" type="text" class="w-full border p-2 rounded">
+  </div>
+
+  <!-- Thumbnail URL Input -->
+<div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="thumbnailURL">Thumbnail URL (optional):</label>
+    <input v-model="embed.thumbnailURL" id="thumbnailURL" type="text" class="w-full border p-2 rounded">
+  </div>
+  
+
+    <!-- Post Webhook Button -->
+    <div class="mb-4">
+      <button @click="postWebhook" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">Post to Webhook</button>
+    </div>
+
+
+<!-- Generated Embed Preview (doesn't work yet with thumbnail and image) -->
+<div class="mb-4">
+    <h2 class="text-lg font-semibold mb-2">Generated Embed Preview:</h2>
+    <div class="bg-gray-800 text-white p-4 rounded">
+        <div class="text-sm text-gray-500" v-if="embed.author">{{ embed.author }}</div>
+      <div class="font-semibold mb-2" v-if="embed.title">{{ embed.title }}</div>
+      <div v-if="embed.description">{{ embed.description }}</div>
+    </div>
+  </div>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
