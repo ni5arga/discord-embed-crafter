@@ -8,6 +8,7 @@ new Vue({
         imageURL: '',
         thumbnailURL: '',
         color: '#7289da' 
+      },
       webhookUrl: ''
     },
     methods: {
